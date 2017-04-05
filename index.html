@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>orient</title>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	html, body, .wrapper {
+		height: 100%;
+	}
+	.wrapper {
+		background-color: #e7e187;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	input {
+		width: 400px;
+		height: 50px;
+	}
+	.lsMsg {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.88);
+		align-items: center;
+		justify-content: center;
+		color: #fff;
+		font-size: 25px;
+		display: none;
+	}
+	.lsMsg.active {
+		display: flex;		
+	}
+</style>
+<script>
+
+	function orientchange() {
+		if(window.innerWidth > window.innerHeight){
+			document.querySelector('.lsMsg').classList.add('active');
+		}
+		else {
+			document.querySelector('.lsMsg').classList.remove('active');			
+		}
+	}
+	
+	window.addEventListener("orientationchange", function() {
+		orientchange();
+	}, false);
+</script>
+</head>
+<body>
+<div class="lsMsg">Landscape</div>
+<div class="wrapper">
+	<input type="text">
+</div>
+</body>
+</html>
